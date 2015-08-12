@@ -16,7 +16,7 @@ module Workflow
         # database.
         def persist_workflow_state(new_value)
           # Rails 3.1 or newer
-          update_column self.class.workflow_column, new_value
+          update_column self.class.workflow_column, new_value unless self.destroyed?
         end
 
         private
